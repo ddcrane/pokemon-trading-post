@@ -1,0 +1,27 @@
+{
+  "name": "pokemon-trading-post",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "env": "0.0.2",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.7",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddcrane/pokemon-trading-post.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ddcrane/pokemon-trading-post/issues"
+  },
+  "homepage": "https://github.com/ddcrane/pokemon-trading-post#readme"
+}
