@@ -10,8 +10,20 @@ Card.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
-        }
+        },
         // add additional columns here
+        card_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        set_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        card_rarity: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     },
     {
         sequelize,
