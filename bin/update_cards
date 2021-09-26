@@ -1,3 +1,8 @@
+#! /app/bin/node
+
+/*
+    Script that partners with scheduled jobs in Heroku
+*/
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -67,7 +72,11 @@ sequelize.sync({ force: false }).then(() => {
                     console.log(err);
                     return;
                 });
-            }
+            } // end for loop
+        })
+        .then(() => {
+            // exit script
+            process.exit();
         });
     });
 });
