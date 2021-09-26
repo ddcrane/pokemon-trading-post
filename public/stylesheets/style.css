@@ -1,0 +1,50 @@
+:root {
+    --primary-color: #0277bd;
+    --primary-light: #58a5f0;
+    --primary-dark: #004c8c;
+    --secondary-color: #ffff00;
+    --secondary-light: #ffff5a;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--primary-light);
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    padding-left: 20px
+}
+
+header .row {
+    margin: 0;
+}
+
+.links {
+    width: 40%;
+}
+
+.title {
+    width: 55%;
+    margin-left: 5%;
+}
+
+button {
+    border: unset;
+    background-color: var(--primary-color);
+    color: white;
+    height: 50px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: var(--secondary-light);
+    color: black;
+}
+
