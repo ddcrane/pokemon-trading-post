@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background-color: var(--primary-light);
+    background-color: #e8e8e8;
     width: 100%;
     height: 100%;
 }
@@ -17,7 +17,8 @@ header {
     background-color: var(--primary-color);
     color: white;
     padding: 20px;
-    padding-left: 20px
+    padding-left: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 header .row {
@@ -33,7 +34,7 @@ header .row {
     margin-left: 5%;
 }
 
-button {
+header button {
     border: unset;
     background-color: var(--primary-color);
     color: white;
@@ -43,8 +44,68 @@ button {
     margin-right: 5px;
 }
 
-button:hover {
+header button:hover {
     background-color: var(--secondary-light);
     color: black;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+.sample-posting {
+    background-color: white;
+    margin: 0 10%;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.bottom-row {
+    border-radius: 0 0 10px 10px;
+}
+
+.top-row {
+    border-radius: 10px 10px 0 0;
+}
+
+.ns-row {
+    background-color: var(--secondary-light);
+    padding: 20px 50px;
+    margin: unset;
+}
+
+.trade-categories {
+    padding: 20px 50px;
+}
+
+.comment-button {
+    border: unset;
+    background-color: var(--secondary-light);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.comment-button:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    color: white;
+}
+
+.card-container {
+    padding: 0 12px;
+}
+
+.sample-card {
+    height: 120px;
+    width: 75px;
+    background-color: var(--primary-light);
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+p {
+    font-size: 20px;
+}
+
+.cards {
+    padding-top: unset;
+}
