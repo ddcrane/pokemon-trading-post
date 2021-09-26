@@ -1,0 +1,73 @@
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3001;
+const sequelize = require("../config/connection");
+require('dotenv').config();
+
+app.use(express.json());
+
+const { Card } = require('../../models');
+const escapeCard = apiCardData => {
+
+    const card = {
+        api_id: apiCardData.id,
+        image: apiCardData.image_url,
+        // more properties
+    };
+
+    return card;
+};
+
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => {
+        console.log('Updating Cards from Pokemon API...');
+
+        // fetch pokemon api
+        fetch('https://pokemon-api.com')
+        .then(pokemonApiData => {
+            console.log('pokemonApiData', pokemonApiData);
+            // loop through each card
+            for (card in pokemonApiData) {
+                // find card by api_id
+                Card.findOne({
+                    where: {
+                        api_id: req.params.id
+                    }
+                })
+                .then(dbCardData => {
+                    if (!dbCardData) {
+                        // if card doesn't exist, create card
+                        Card.create(escapeCard(card))
+                        .then(dbCardData => {
+                            console.log(`apiStatus: Succesful Card Create [ id: ${dbCardData.id} ]`, req.body);
+                            return;
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            return;
+                        });
+                    } else if (dbCardData) {
+                        // if card exists, update card
+                        Card.update(escapeCard(card), {
+                            where: {
+                                id: dbCardData.id
+                            }
+                        })
+                        .then(dbCardData => {
+                            console.log(`apiStatus: Succesful Card Update [ id: ${dbCardData.id} ]`, req.body);
+                            return;
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            return;
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                    return;
+                });
+            }
+        });
+    });
+});
