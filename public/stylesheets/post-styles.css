@@ -1,0 +1,19 @@
+.add-button {
+    border: unset;
+    background-color: var(--primary-dark);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.add-button:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.bottom-row button {
+    width: 200px;
+    margin: 0 auto;
+    background-color: var(--primary-light);
+    color: white;
+}
