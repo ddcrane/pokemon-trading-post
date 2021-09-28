@@ -1,8 +1,5 @@
 #! /app/bin/node
 
-/*
-    Script that partners with scheduled jobs in Heroku
-*/
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,6 +20,9 @@ const escapeCard = apiCardData => {
     return card;
 };
 
+/*
+    Sync DB and then fetch Pokemon API
+*/
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
         console.log('Updating Cards from Pokemon API...');

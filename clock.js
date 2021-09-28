@@ -36,12 +36,12 @@ const cron = require('node-cron');
 */
 
 // Check Pokemon API every 24 hrs and update database
-cron.schedule(
-    '* * 0 * * *',
-    () => {
-        updateCards();
-    },
-    {   
-        timezone: "America/Chicago"
-    }
-);
+// cron.schedule(
+//     '* * 0 * * *',
+//     () => {
+//         updateCards();
+//     },
+//     {   
+//         timezone: "America/Chicago"
+//     }
+// );
