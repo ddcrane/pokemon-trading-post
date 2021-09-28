@@ -11,6 +11,10 @@ Card.init(
             primaryKey: true,
             autoIncrement: true
         },
+        api_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         // add additional columns here
         card_name: {
             type: DataTypes.STRING,
