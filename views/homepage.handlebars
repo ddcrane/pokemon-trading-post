@@ -1,24 +1,38 @@
 <ol>
     <li>
+        {{#each post}}
         <div class="sample-posting">
-            <p class="top-row ns-row">{{ user.username }}</p>
+            <p class="top-row ns-row">bpkaufman4</p>
             <div class="row trade-categories">
                 <p class="col-6">You receive</p>
                 <p class="col-6">You give</p>
             </div>
             <div class="row trade-categories cards">
+                {{#each card}}
                 <div class="col-6 card-container container-fluid d-flex">
-                    <div class="col-auto sample-card"></div>
-                    <div class="col-auto sample-card"></div>
+                    <div class="card-info">
+                        <img class="card-img" src="{{card.image_url}}" alt="">
+                        <p class="card-atrs">Name: {{card.name}}</p>
+                        <p class="card-atrs">Set: {{card.set}}</p>
+                        <p class="card-atrs">Rarity: {{card.rarity}}</p>
+                    </div>    
                 </div>
-                <div class="col-6 card-container d-flex">
-                    <div class="sample-card"></div>
-                    <div class="sample-card"></div>
-                </div>
+                {{/each}}
+                {{#each card}}
+                <div class="col-6 card-container container-fluid d-flex">
+                    <div class="card-info">
+                        <img class="card-img" src="{{card.image_url}}" alt="">
+                        <p class="card-atrs">Name: {{card.name}}</p>
+                        <p class="card-atrs">Set: {{card.set}}</p>
+                        <p class="card-atrs">Rarity: {{card.rarity}}</p>
+                    </div>
+                </div> 
+                {{/each}}
             </div>
             <div class="bottom-row ns-row">
                 <button class="comment-button">Comment</button>
             </div>
         </div>    
+        {{/each}}
     </li>
 </ol>

@@ -8,17 +8,26 @@
             <p class="col-6">Card(s) you want</p>
         </div>
         <div class="row trade-categories cards">
-            <div class="col-6 card-container container-fluid d-flex align-items-center">
-                <div class="col-auto sample-card"></div>
-                <div class="col-auto sample-card"></div>
-                <button class="add-button">+</button>
+            {{#each card}}
+            <div class="col-6 card-container container-fluid d-flex">
+                <div class="card-info">
+                    <img class="card-img" src="{{card.image_url}}" alt="">
+                    <p class="card-atrs">Name: {{card.name}}</p>
+                    <p class="card-atrs">Set: {{card.set}}</p>
+                    <p class="card-atrs">Rarity: {{card.rarity}}</p>
+                </div>    
             </div>
-            <div class="col-6 card-container d-flex align-items-center">
-                <div class="col-auto sample-card"></div>
-                <div class="col-auto sample-card"></div>
-                <button class="add-button">+</button>
-            </div>
-            
+            {{/each}}
+            {{#each card}}
+            <div class="col-6 card-container container-fluid d-flex">
+                <div class="card-info">
+                    <img class="card-img" src="{{card.image_url}}" alt="">
+                    <p class="card-atrs">Name: {{card.name}}</p>
+                    <p class="card-atrs">Set: {{card.set}}</p>
+                    <p class="card-atrs">Rarity: {{card.rarity}}</p>
+                </div>
+            </div> 
+            {{/each}}
         </div>
         <!-- comment -->
         <div class="bottom-row ns-row">

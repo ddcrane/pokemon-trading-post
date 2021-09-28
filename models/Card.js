@@ -23,6 +23,13 @@ Card.init(
         card_rarity: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        image_url: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isUrl: true
+            }
         }
     },
     {
