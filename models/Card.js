@@ -7,15 +7,13 @@ Card.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         api_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: false
         },
-        // add additional columns here
         card_name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -34,7 +32,16 @@ Card.init(
             validate: {
                 isUrl: true
             }
+        },
+        isTrade: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        isWant: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
+
     },
     {
         sequelize,

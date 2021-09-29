@@ -1,0 +1,26 @@
+<div class="sample-posting">
+    <p class="top-row ns-row">{{user.username}}</p>
+    <div class="row trade-categories">
+        <div class="col-6">
+            <h3>Trading</h3>
+            {{#each cards as |card|}}
+                {{#if this.isTrade}}
+                    {{> post-card card }}
+                {{/if}}
+            {{/each}}
+        </div>
+        <div class="col-6">
+            <h3>For</h3>
+            {{#each cards as |card|}}
+                {{#if this.isWant}}
+                    {{> post-card card }}
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="bottom-row ns-row">
+        {{#unless user}}
+            <button class="comment-button">Comment</button>
+        {{/unless}}
+    </div>
+</div> 

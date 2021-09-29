@@ -22,13 +22,6 @@ Post.init(
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: true
-        },
-        card_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'card',
-                key: 'id'
-            }
         }
     },
     {

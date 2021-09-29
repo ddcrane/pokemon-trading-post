@@ -8,7 +8,6 @@ PostCard.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
@@ -25,10 +24,6 @@ PostCard.init(
                 model: 'card',
                 key: 'id'
             }
-        },
-        klass: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true
         }
     },
     {

@@ -17,9 +17,15 @@
     <header class="nav sticky-top">
         <h1 class="nav-item title">Pokémon Trading Post</h1>
         <div class="links nav justify-content-end">
-        <button class="nav-item" id="add-trade">Add trade offer</button>
-        <button class="nav-item" id="log-in">Log in</button>
-        <button class="nav-item" id="register">Register</button>
+            {{#if user}}
+                <a class="nav-item" id="add-trade" href="/">Create Trade</a>
+                <a class="nav-item" id="log-in" href="/logout">Logout</a>
+            {{/if}}
+
+            {{#unless user}}
+                <a class="nav-item" id="log-in" href="/login">Login</a>
+                <a class="nav-item" id="register" href="/register">Register</a>
+            {{/unless}}
         </div>
     </header>
 
@@ -27,7 +33,7 @@
         {{{ body }}}
     </div>
    
-    <script src="./javascript/logout.js"></script>
-    <script src="./javascript/header-links.js"></script>
+    {{!-- <script src="./javascript/logout.js"></script> --}}
+    {{!-- <script src="./javascript/header-links.js"></script> --}}
 </body>
 </html>
