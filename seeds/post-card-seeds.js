@@ -6,7 +6,7 @@ const postCardData = [
         card_id: "1"
     },
     {
-        post_id: "1",
+        post_id: "2",
         card_id: "2"
     }
 ];
