@@ -1,4 +1,3 @@
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -12,12 +11,9 @@ Comment.init(
             primaryKey: true,
             autoIncrement: true
         },
-        text: {
+        comment_text: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,
