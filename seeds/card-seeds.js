@@ -7,6 +7,14 @@ const cardData = [
         set_name: "Vivid Voltage",
         card_rarity: "Rare",
         image_url: "https://images.pokemontcg.io/swsh4/25.png"
+    },
+    {
+        api_id: 2,
+        card_name: "Pikachu",
+        set_name: "Base",
+        card_rarity: "Common",
+        image_url: "https://images.pokemontcg.io/swsh4/25.png"
+
     }
 ];
 

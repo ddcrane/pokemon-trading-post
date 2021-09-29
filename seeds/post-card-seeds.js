@@ -4,6 +4,10 @@ const postCardData = [
     {
         post_id: "1",
         card_id: "1"
+    },
+    {
+        post_id: "1",
+        card_id: "2"
     }
 ];
 
