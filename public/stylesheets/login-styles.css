@@ -6,7 +6,7 @@
     --secondary-light: #ffff5a;
 }
 
-.login-form {
+.login-form, .signup-form {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     background-color: white;
     width: 40%;
@@ -15,13 +15,13 @@
     border-radius: 20px;
 }
 
-.login-form h2 {
+.login-form h2, .signup-form h2 {
     text-align: center;
     margin-bottom: 25px;
 }
 
 
-.login-form input {
+.login-form input, .signup-form input{
     margin: 10px 0;
     display: block;
     width: 250px;

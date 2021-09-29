@@ -92,6 +92,7 @@ router.get('/post/:id', (req, res) => {
 
 // login
 router.get('/login', (req, res) => {
+    console.log('/login', req.body);
     if (req.session.loggedIn) {
         res.redirect('/');
         return;

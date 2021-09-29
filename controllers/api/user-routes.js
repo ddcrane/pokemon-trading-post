@@ -75,6 +75,7 @@ router.post('/', (req, res) => {
 // login
 router.post('/login', (req, res) => {
     // expects {email: 'you@example.com', password: 'password1234'}
+    console.log('login attempt', req.body.email, req.body.password);
     User.findOne({
         where: {
             email: req.body.email
@@ -85,6 +86,8 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'No user with that email address!' });
             return;
         }
+
+        console.log('dbUserData', dbUserData);
 
         const validPassword = dbUserData.checkPassword(req.body.password);
 
