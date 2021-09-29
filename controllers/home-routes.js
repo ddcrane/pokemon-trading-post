@@ -31,11 +31,55 @@ router.get('/', (req, res) => {
     .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
 
-        console.log('homepage posts:', posts);
-
         res.render('homepage', {
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            username: req.session.username
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// /trades
+router.get('/trades', (req, res) => {
+    Post.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: [
+            'id',
+            'offer_status',
+            'created_at',
+            'updated_at'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['id', 'username']
+            },
+            {
+                model: Card,
+                as: 'cards'
+            },
+            {
+                model: Comment,
+                include: {
+                    model: User
+                }
+            }
+        ]
+    })
+    .then(dbPostData => {
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+
+        // update to trades template
+        res.render('homepage', {
+            posts,
+            loggedIn: req.session.loggedIn,
+            username: req.session.username
         });
     })
     .catch(err => {
