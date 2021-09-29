@@ -22,7 +22,7 @@ PostCard.init(
         card_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'tag',
+                model: 'card',
                 key: 'id'
             }
         },

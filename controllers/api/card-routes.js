@@ -5,25 +5,26 @@ const { User, Card } = require('../../models');
 // authentication
 const authentication = require('../../utils/auth');
 
+// all cards
+router.get('/', (req, res) => {
+    Card.findAll()
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 // single card
 router.get('/:id', (req, res) => {
     Card.findOne({
         where: {
             id: req.params.id
-        },
-        attributes: [
-            // attributes
-        ],
-        include: [
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
+        }
     })
     .then(dbCardData => {
         if (!dbCardData) {
-            res.status(404).json({ message: 'No post found with this id' });
+            res.status(404).json({ message: 'No card found with this id' });
             return;
         }
         res.json(dbCardData);

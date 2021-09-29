@@ -20,7 +20,8 @@ Post.init(
         },
         offer_status: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
+            defaultValue: true
         },
         card_id: {
             type: DataTypes.INTEGER,
