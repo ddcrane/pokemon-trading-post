@@ -25,6 +25,10 @@ PostCard.init(
                 model: 'tag',
                 key: 'id'
             }
+        },
+        klass: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
         }
     },
     {

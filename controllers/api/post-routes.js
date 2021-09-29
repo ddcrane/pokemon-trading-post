@@ -5,7 +5,7 @@ const { Post, User, Comment } = require('../../models');
 // authentication
 const authentication = require('../../utils/auth');
 
-// all users
+// all posts
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// single user
+// single post
 router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']

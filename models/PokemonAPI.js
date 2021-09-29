@@ -17,9 +17,9 @@ class PokemonAPI {
         });
     }
 
-    findByCardID(id) {
+    findByCardID(api_id) {
         return new Promise((resolve, reject) => {
-            pokemon.card.find(id)
+            pokemon.card.find(api_id)
             .then(apiData => {
                 resolve(apiData);
             }).catch(err => {
