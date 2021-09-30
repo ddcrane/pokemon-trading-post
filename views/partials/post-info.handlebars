@@ -3,24 +3,31 @@
     <div class="row trade-categories">
         <div class="col-6">
             <h3>Trading</h3>
-            {{#each cards as |card|}}
-                {{#if this.isTrade}}
-                    {{> post-card card }}
-                {{/if}}
-            {{/each}}
+            <div class="row trade categories cards">
+                {{#each cards as |card|}}
+                    {{#if this.isTrade}}
+                        {{> post-card card }}
+                    {{/if}}
+                {{/each}}
+            </div>
+            
         </div>
         <div class="col-6">
             <h3>For</h3>
+            <div class="row trade-categories cards">
             {{#each cards as |card|}}
                 {{#if this.isWant}}
                     {{> post-card card }}
                 {{/if}}
             {{/each}}
+            </div>
         </div>
     </div>
     <div class="bottom-row ns-row">
-            <button id="comment-button{{this.id}}" class="comment-button">Comment</button>
-            <textarea class="hidden" name="comment" id="comment-text{{this.id}}" cols="30" rows="10"></textarea>
-            <button class="hidden comment-button" id="post-comment-button{{this.id}}">Post Comment</button>
+            <button id="add-comment-{{this.id}}" class="comment-button">Comment</button>
+            <form id="comment-form-{{this.id}}" class="hidden" action="">
+                <textarea name="comment" id="comment-text-{{this.id}}" cols="30" rows="10"></textarea>
+                <button type="submit" class="comment-button" id="submit-comment-{{this.id}}">Post Comment</button>
+            </form>
     </div>
 </div> 
