@@ -1,4 +1,4 @@
-<div class="sample-posting">
+<div class="sample-posting" id="post{{this.id}}">
     <p class="top-row ns-row">{{user.username}}</p>
     <div class="row trade-categories">
         <div class="col-6">
@@ -19,8 +19,8 @@
         </div>
     </div>
     <div class="bottom-row ns-row">
-        {{#unless loggedIn}}
-            <button class="comment-button">Comment</button>
-        {{/unless}}
+            <button id="comment-button{{this.id}}" class="comment-button">Comment</button>
+            <textarea class="hidden" name="comment" id="comment-text{{this.id}}" cols="30" rows="10"></textarea>
+            <button class="hidden comment-button" id="post-comment-button{{this.id}}">Post Comment</button>
     </div>
 </div> 

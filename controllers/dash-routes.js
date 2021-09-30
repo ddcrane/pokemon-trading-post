@@ -15,8 +15,6 @@ router.get('/', authentication, (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
-            'title',
             'created_at'
         ],
         include: [
@@ -36,7 +34,7 @@ router.get('/', authentication, (req, res) => {
     })
     .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+        res.render('post', { posts, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -49,8 +47,6 @@ router.get('/edit/:id', authentication, (req, res) => {
     Post.findByPk(req.params.id, {
         attributes: [
             'id',
-            'post_url',
-            'title',
             'created_at'
         ],
         include: [

@@ -6,6 +6,10 @@
     --secondary-light: #ffff5a;
 }
 
+.hidden {
+    display: none;
+}
+
 body {
     font-family: 'Raleway', sans-serif;
     background-color: #e8e8e8;
