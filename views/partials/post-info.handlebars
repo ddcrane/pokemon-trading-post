@@ -3,7 +3,7 @@
     <div class="row trade-categories">
         <div class="col-6">
             <h3>Trading</h3>
-            <div class="row trade categories cards">
+            <div class="row cards">
                 {{#each cards as |card|}}
                     {{#if this.isTrade}}
                         {{> post-card card }}
@@ -14,7 +14,7 @@
         </div>
         <div class="col-6">
             <h3>For</h3>
-            <div class="row trade-categories cards">
+            <div class="row cards">
             {{#each cards as |card|}}
                 {{#if this.isWant}}
                     {{> post-card card }}
