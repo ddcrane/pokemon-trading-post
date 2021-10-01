@@ -29,5 +29,8 @@
                 <textarea name="comment" id="comment-text-{{this.id}}" cols="30" rows="10"></textarea>
                 <button type="submit" class="comment-button" id="submit-comment-{{this.id}}">Post Comment</button>
             </form>
+            {{#each comments as |comment|}}
+                <p>{{comment.user.username}}: {{comment.text}}</p>
+            {{/each}}
     </div>
 </div> 
