@@ -45,11 +45,14 @@ $(document).on('click', "button[id^='cancel-comment-']", function(e) {
 // Submit Comment
 $(document).on('click', "button[id^='submit-comment-']",  async function(e) {
     e.preventDefault();
+    console.log(this);
     const id = this.id;
     const postId = id.split('-')[2];
+    console.log(postId)
 
-    const comment = document.querySelector('textarea[name="comment"]').value.trim();
-
+    const comment = $(this.previousElementSibling).val();
+    
+    console.log(comment);
     // Post Form Data
     const response = await fetch('/api/comments', {
         method: 'POST',
@@ -59,9 +62,7 @@ $(document).on('click', "button[id^='submit-comment-']",  async function(e) {
         },
         body: JSON.stringify({
             text: comment,
-            post_id: id.charAt(15),
-            user: user.username
-        })
+            post_id: postId})
     });
 
     if (response.ok) {
