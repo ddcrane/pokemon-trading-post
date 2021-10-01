@@ -86,6 +86,7 @@ header a:hover {
     background-color: var(--secondary-light);
     padding: 10px 20px;
     border-radius: 10px;
+    margin-left: 40px;
 }
 
 .comment-button:hover {
@@ -134,4 +135,9 @@ p {
 
 li {
     list-style: none;
+}
+
+.comment {
+    margin: unset;
+    padding: 20px 40px;
 }

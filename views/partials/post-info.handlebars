@@ -26,11 +26,12 @@
     <div class="bottom-row ns-row">
             <button id="add-comment-{{this.id}}" class="comment-button">Comment</button>
             <form id="comment-form-{{this.id}}" class="hidden" action="">
-                <textarea name="comment" id="comment-text-{{this.id}}" cols="30" rows="10"></textarea>
+                <textarea name="comment" id="comment-text-{{this.id}}"></textarea>
                 <button type="submit" class="comment-button" id="submit-comment-{{this.id}}">Post Comment</button>
+                <button class="comment-button cancel-button" id="cancel-comment-{{this.id}}">Cancel</button>
             </form>
             {{#each comments as |comment|}}
-                <p>{{comment.user.username}}: {{comment.text}}</p>
+                <p class="comment">{{comment.user.username}}:  {{comment.text}}</p>
             {{/each}}
     </div>
 </div> 
