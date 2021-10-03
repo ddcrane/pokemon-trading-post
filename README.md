@@ -1,5 +1,7 @@
 # pokemon-trading-post
 
+https://pokemon-trading-post.herokuapp.com/
+
 ## User Story
  AS A pokemon card collector
  I WANT to be able to communicate with other collectors
@@ -17,3 +19,20 @@
  THEN I can add pokemon cards to either 'have' or 'want' columns
  WHEN I post a trade offer
  THEN I can recieve comments from other users regarding my trade
+
+## API Used
+Pokemon TCG
+https://pokemontcg.io/ 
+
+## Technologies Used
+JavaScript
+HTML
+CSS
+Bootstrap
+Node
+Express
+MySQL
+Sequelize,
+Handlebars
+
+ <img src="./img/screenshot.png">
