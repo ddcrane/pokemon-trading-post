@@ -18,9 +18,9 @@ Post.init(
                 key: 'id'
             }
         },
-        offer_status: {
+        status: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
             defaultValue: true
         }
     },

@@ -84,9 +84,37 @@ router.get('/:id', (req, res) => {
 
 // create
 router.post('/', authentication, (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+    // expects {cards_trade: '5,3,7', cards_want: '2,3,1'}
     Post.create({
         user_id: req.session.user_id
+    })
+    .then(dbPostData => {
+        
+        if (req.body.cards_trade) {
+            const cardTagIdArr = req.body.cards_trade.split(',').map((card_id) => {
+                return {
+                    card_id: card_id,
+                    post_id: dbPostData.id,
+                    klass: 'trade'
+                };
+            });
+
+            PostCard.bulkCreate(cardTagIdArr);
+        }
+
+        if (req.body.cards_want) {
+            const cardTagIdArr = req.body.cards_want.split(',').map((card_id) => {
+                return {
+                    card_id: card_id,
+                    post_id: dbPostData.id,
+                    klass: 'want'
+                };
+            });
+
+            PostCard.bulkCreate(cardTagIdArr);
+        }
+        
+        return dbPostData;
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -97,7 +125,12 @@ router.post('/', authentication, (req, res) => {
 
 // update
 router.put('/:id', authentication, (req, res) => {
-    Post.update()
+    Post.update(req.body, {
+        individualHooks: true,
+        where: {
+            id: req.params.id
+        }
+    })
     .then(dbPostData => {
         if (!dbPostData) {
             res.status(404).json({ message: 'No post found with this id' });

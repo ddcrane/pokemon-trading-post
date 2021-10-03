@@ -16,18 +16,20 @@
 </head>
 <body>
     <header class="nav sticky-top">
-        <h1 class="nav-item title">Pokémon Trading Post</h1>
+        <h1 class="nav-item title">
+            <a href="/">Pokemon Trading Post</a>
+        </h1>
         <div class="links nav justify-content-end">
             {{!-- Authenticated Nav --}}
-            {{#if loggedIn}}
+            {{#if currentSession.loggedIn}}
                 {{!-- <span class="nav-item"> Welcome, {{username}}</span> --}}
-                <a class="nav-item" href="/trades">My Trades</a>
-                <a class="nav-item" href="/dashboard">New Trade</a>
+                <a class="nav-item" href="/my-posts">My Trades</a>
+                <a class="nav-item" href="/new-post">New Trade</a>
                 <a class="nav-item" id="logout">Logout</a>
             {{/if}}
 
             {{!-- Home Nav --}}
-            {{#unless loggedIn}}
+            {{#unless currentSession.loggedIn}}
                 <a class="nav-item" href="/login">Login</a>
                 <a class="nav-item" href="/register">Register</a>
             {{/unless}}

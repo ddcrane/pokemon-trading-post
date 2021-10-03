@@ -11,18 +11,18 @@ Card.init(
             autoIncrement: true
         },
         api_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        card_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        set_name: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        card_rarity: {
+        set: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        rarity: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -32,16 +32,7 @@ Card.init(
             validate: {
                 isUrl: true
             }
-        },
-        isTrade: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        },
-        isWant: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
         }
-
     },
     {
         sequelize,

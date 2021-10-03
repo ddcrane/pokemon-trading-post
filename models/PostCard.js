@@ -24,6 +24,9 @@ PostCard.init(
                 model: 'card',
                 key: 'id'
             }
+        },
+        klass: {
+            type: DataTypes.STRING
         }
     },
     {
