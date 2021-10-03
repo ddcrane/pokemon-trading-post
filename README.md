@@ -25,14 +25,6 @@ Pokemon TCG
 https://pokemontcg.io/ 
 
 ## Technologies Used
-JavaScript
-HTML
-CSS
-Bootstrap
-Node
-Express
-MySQL
-Sequelize,
-Handlebars
+JavaScript, HTML, CSS, Bootstrap, Node, Express, MySQL, Sequelize, Handlebars
 
  <img src="./img/screenshot.png">
