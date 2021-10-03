@@ -1,15 +1,33 @@
+<div>
+    <form id="add-card" class="add-card container hidden">
+        <h2 class="top-row ns-row blue">Add Card to Post</h2>
+        <div id="form-anchor">
+            <div class="step">
+                <div>
+                    <label for="card-search" class="card-step">Step 1. Search For Card</label>
+                    <div class="card-search row">
+                        <input type="text" name="card-search" id="card-search" class="search-box col-6" placeholder="ex: Charizard">
+                        <button id="search" class="search-btn col-6">Search</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 <div class="sample-posting">
+    
         <!-- user info -->
         <p class="top-row ns-row"></p>
         <!-- cards to trade -->
         <div class="row trade-categories">
             <div class="col-6 card-wrapper" id="cards-trade">
                 <h3>Trading</h3>
-                <button class="btn btn-primary btn-add-card">Add Card</button>
+                <button class="btn btn-primary btn-add-card">+</button>
             </div>
             <div class="col-6 card-wrapper" id="cards-want">
                 <h3>Want</h3>
-                <button class="btn btn-primary btn-add-card">Add Card</button>
+                <button class="btn btn-primary btn-add-card">+</button>
             </div>
         </div>
 
@@ -19,26 +37,11 @@
             <input type="hidden" name="cards_trade" id="new-cards-trade">
             <input type="hidden" name="cards_want" id="new-cards-want">
             <div class="bottom-row ns-row">
-                <button id="create" class="btn btn-primary">Create Post</button>
+                <button id="create" class="post-button">Create Post</button>
             </div>
         </form>
     </div>
 
-    <div>
-        <form id="add-card" class="add-card container hidden">
-            <h2>Add Card to Post</h2>
-            <div id="form-anchor">
-                <div class="step">
-                    <div>
-                        <label for="card-search">Step 1. Search For Card</label>
-                        <input type="text" name="card-search" id="card-search" class="row text mx-auto" placeholder="ex: Charizard">
-                    </div>
-                    <div>
-                        <button id="search" class="btn btn-primary mx-auto">Search</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+
 
     <script src="/javascript/new-post.js"></script>
