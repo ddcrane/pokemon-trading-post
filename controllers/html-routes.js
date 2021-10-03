@@ -79,7 +79,7 @@ router.get('/new-post', authentication, (req, res) => {
     });
 });
 
-// my-posts
+//my-posts
 router.get('/my-posts', authentication, (req, res) => {
     Post.findAll({
         where: {
@@ -125,7 +125,7 @@ router.get('/my-posts', authentication, (req, res) => {
     });
 });
 
-// search
+// search Pokemon API
 router.get('/search/:search/:klass', authentication, (req, res) => {
     // search by ID
     if (req.params.klass == 'id') {

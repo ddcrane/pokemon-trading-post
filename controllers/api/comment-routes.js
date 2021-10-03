@@ -6,8 +6,7 @@ const authentication = require('../../utils/auth');
 router.get('/', (req, res) => {
   Comment.findAll({
     include: {
-        model: User,
-        attributes: ['username']
+        model: User
     }
   })
     .then(dbCommentData => res.json(dbCommentData))

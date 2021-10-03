@@ -37,9 +37,13 @@ router.get('/:id', (req, res) => {
 
 // create
 router.post('/', authentication, (req, res) => {
-    // expects {}
+    // expects {api_id: 'base1-2', name: 'Charizard', set: 'Base', rarity: 'Rare Holo', image_url: 'http://someurl.com'}
     Card.create({
-        // Card properties
+        api_id: req.body.id,
+        name: req.body.name,
+        set: req.body.name,
+        rarity: req.body.rarity,
+        image_url: req.body.image_url
     })
     .then(dbCardData => res.json(dbCardData))
     .catch(err => {
