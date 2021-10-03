@@ -1,7 +1,8 @@
+
 <ol>
-    {{#each posts as |post|}}
-    <li>
-        {{> post-info post }}
-    </li>
-    {{/each}}
+    {{#eachWith posts data=this}}
+        <li>
+            {{> post-info }}
+        </li>
+    {{/eachWith}}
 </ol>

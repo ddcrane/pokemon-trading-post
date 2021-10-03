@@ -1,12 +1,21 @@
-<div class="sample-posting" id="post{{this.id}}">
-    <p class="top-row ns-row">{{user.username}}</p>
+<div class="sample-posting post-wrapper" id="post-{{this.id}}">
+    <div class="row top-row ns-row">
+        <div class="col-6">
+            {{this.user.username}}
+        </div>
+        <div class="col-6">
+            {{#if (isSame data.currentSession.user_id this.user_id)}}
+                <button id="close-post" class="btn btn-primary">Close Trade</button>
+            {{/if}}
+        </div>
+    </div>
     <div class="row trade-categories">
         <div class="col-6">
             <h3>Trading</h3>
             <div class="row cards">
-                {{#each cards as |card|}}
-                    {{#if this.isTrade}}
-                        {{> post-card card }}
+                {{#each this.cards }}
+                    {{#if (isSame this.post_card.klass 'trade')}}
+                        {{> post-card this }}
                     {{/if}}
                 {{/each}}
             </div>
@@ -15,23 +24,26 @@
         <div class="col-6">
             <h3>For</h3>
             <div class="row cards">
-            {{#each cards as |card|}}
-                {{#if this.isWant}}
-                    {{> post-card card }}
-                {{/if}}
-            {{/each}}
+                {{#each this.cards }}
+                    {{#if (isSame this.post_card.klass 'want')}}
+                        {{> post-card this }}
+                    {{/if}}
+                {{/each}}
             </div>
         </div>
     </div>
     <div class="bottom-row ns-row">
+        {{#if data.currentUser.loggedIn}}
             <button id="add-comment-{{this.id}}" class="comment-button">Comment</button>
             <form id="comment-form-{{this.id}}" class="hidden" action="">
                 <textarea name="comment" id="comment-text-{{this.id}}"></textarea>
                 <button type="submit" class="comment-button" id="submit-comment-{{this.id}}">Post Comment</button>
                 <button class="comment-button cancel-button" id="cancel-comment-{{this.id}}">Cancel</button>
             </form>
-            {{#each comments as |comment|}}
-                <p class="comment">{{comment.user.username}}:  {{comment.text}}</p>
-            {{/each}}
+        {{/if}}
+        {{#each comments as |comment|}}
+            <p class="comment">{{comment.user.username}}:  {{comment.text}}</p>
+        {{/each}}
+        
     </div>
 </div> 

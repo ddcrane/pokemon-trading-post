@@ -6,18 +6,31 @@ class PokemonAPI {
     constructor() {
     }
 
-    findByCardName(name) {
+    findByName(searchValue) {
         return new Promise((resolve, reject) => {
-            pokemon.card.where({ q: `name:${name}`})
+            pokemon.card.where({ q: `!name:${searchValue}`})
             .then(apiData => {
-                resolve(apiData);
+                // if results, resolve
+                if (apiData.count >= 1) {
+                    resolve(apiData);
+                // if no results, try expanded query
+                } else {
+                    // write a better expanded search
+                    pokemon.card.where({ q: `name:${searchValue}`})
+                    .then(apiData => {
+                        resolve(apiData);
+                    })
+                    .catch(err => {
+                        reject(err);
+                    })
+                }
             }).catch(err => {
                 reject(err);
             });
         });
     }
 
-    findByCardID(api_id) {
+    findByID(api_id) {
         return new Promise((resolve, reject) => {
             pokemon.card.find(api_id)
             .then(apiData => {

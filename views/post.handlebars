@@ -1,37 +1,44 @@
-<body>
-    <div class="sample-posting">
+<div class="sample-posting">
         <!-- user info -->
         <p class="top-row ns-row"></p>
         <!-- cards to trade -->
         <div class="row trade-categories">
-            <p class="col-6">Card(s) you have</p>
-            <p class="col-6">Card(s) you want</p>
-        </div>
-        <div class="row trade-categories cards">
-            <div class="col-6 card-container container-fluid d-flex">
-            {{#each card}}
-                <div class="card-info">
-                    <img class="card-img" src="{{card.image_url}}" alt="">
-                    <p class="card-atrs">Name: {{card.name}}</p>
-                    <p class="card-atrs">Set: {{card.set}}</p>
-                    <p class="card-atrs">Rarity: {{card.rarity}}</p>
-                </div>    
-            {{/each}}
+            <div class="col-6 card-wrapper" id="cards-trade">
+                <h3>Trading</h3>
+                <button class="btn btn-primary btn-add-card">Add Card</button>
             </div>
-            <div class="col-6 card-container container-fluid d-flex">
-            {{#each card}}
-                <div class="card-info">
-                    <img class="card-img" src="{{card.image_url}}" alt="">
-                    <p class="card-atrs">Name: {{card.name}}</p>
-                    <p class="card-atrs">Set: {{card.set}}</p>
-                    <p class="card-atrs">Rarity: {{card.rarity}}</p>
+            <div class="col-6 card-wrapper" id="cards-want">
+                <h3>Want</h3>
+                <button class="btn btn-primary btn-add-card">Add Card</button>
+            </div>
+        </div>
+
+        <!-- new post  -->
+        <form id="new-post">
+            <input type="hidden" name="card-anchor" id="card-anchor">
+            <input type="hidden" name="cards_trade" id="new-cards-trade">
+            <input type="hidden" name="cards_want" id="new-cards-want">
+            <div class="bottom-row ns-row">
+                <button id="create" class="btn btn-primary">Create Post</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <form id="add-card" class="add-card container hidden">
+            <h2>Add Card to Post</h2>
+            <div id="form-anchor">
+                <div class="step">
+                    <div>
+                        <label for="card-search">Step 1. Search For Card</label>
+                        <input type="text" name="card-search" id="card-search" class="row text mx-auto" placeholder="ex: Charizard">
+                    </div>
+                    <div>
+                        <button id="search" class="btn btn-primary mx-auto">Search</button>
+                    </div>
                 </div>
-            {{/each}}
-            </div> 
-        </div>
-        <!-- comment -->
-        <div class="bottom-row ns-row">
-            <button class="comment-button">Post</button>
-        </div>
-    </div>   
-</body>
+            </div>
+        </form>
+    </div>
+
+    <script src="/javascript/new-trade.js"></script>
