@@ -13,14 +13,43 @@ async function commentFormHandler(e) {
     console.log(comment, postId);
 }
 
+const createComment = (postId, message) => {
+    return new Promise((resolve, reject) => {
+        fetch('/api/comments', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                post_id: postId,
+                text: message
+            })
+        })
+        .then(response => response.json())
+        .then(commentData => {
+            resolve(commentData);
+        })
+        .catch(err => {
+            reject(err);
+        });
+    });
+}
+
 
 // Add Comment
 $(document).on('click', "button[id^='add-comment-']", function(e) {
     e.preventDefault();
-    console.log(this);
+
     const id = this.id;
     const postId = id.split('-')[2];
-    console.log("success")
+
+    // console.log('comment clicked!', {
+    //     this: this,
+    //     id: id,
+    //     postId: postId
+    // });
+
     // Hide Comment Button
     $(`#add-comment-${postId}`).hide();
     // Show Comment Form
@@ -45,33 +74,22 @@ $(document).on('click', "button[id^='cancel-comment-']", function(e) {
 // Submit Comment
 $(document).on('click', "button[id^='submit-comment-']",  async function(e) {
     e.preventDefault();
-    console.log(this);
+
     const id = this.id;
     const postId = id.split('-')[2];
-    console.log(postId)
+    const message = $(this.previousElementSibling).val().trim();
 
-    const comment = $(this.previousElementSibling).val();
-    
-    console.log(comment);
-    // Post Form Data
-    const response = await fetch('/api/comments', {
-        method: 'POST',
-        headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            text: comment,
-            post_id: postId})
-    });
-
-    if (response.ok) {
+    createComment(postId, message)
+    .then(commentData => {
+        // console.log('commentData', commentData);
         // Hide Comment Form
         $(`#comment-form-${postId}`).hide();
 
         // Show Comment Button
         $(`#add-comment-${postId}`).show();
-    } else {
-        // Throw Errors
-    }
+
+        // Add Comment to Post
+        const commentEl = `<p class="comment">${commentData.user.username}:  ${commentData.text}</p>`;
+        $(`#comment-wrapper-${postId}`).append(commentEl);
+    })
 });

@@ -54,7 +54,6 @@ router.get('/', (req, res) => {
 
 // login
 router.get('/login', (req, res) => {
-    console.log('/login', req.body);
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
@@ -80,7 +79,7 @@ router.get('/new-post', authentication, (req, res) => {
     });
 });
 
-//my-posts
+// my-posts
 router.get('/my-posts', authentication, (req, res) => {
     Post.findAll({
         where: {
@@ -126,6 +125,7 @@ router.get('/my-posts', authentication, (req, res) => {
     });
 });
 
+// search
 router.get('/search/:search/:klass', authentication, (req, res) => {
     // search by ID
     if (req.params.klass == 'id') {
@@ -157,6 +157,7 @@ router.get('/search/:search/:klass', authentication, (req, res) => {
     }    
 });
 
+// dbCheck
 router.post('/check/:api_id', authentication, (req, res) => {
     Card.findOne({
         where: {

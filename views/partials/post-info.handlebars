@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="bottom-row ns-row">
-        {{#if data.currentUser.loggedIn}}
+        {{#if data.currentSession.loggedIn}}
             <button id="add-comment-{{this.id}}" class="comment-button">Comment</button>
             <form id="comment-form-{{this.id}}" class="hidden" action="">
                 <textarea name="comment" id="comment-text-{{this.id}}"></textarea>
@@ -41,9 +41,10 @@
                 <button class="comment-button cancel-button" id="cancel-comment-{{this.id}}">Cancel</button>
             </form>
         {{/if}}
-        {{#each comments as |comment|}}
-            <p class="comment">{{comment.user.username}}:  {{comment.text}}</p>
-        {{/each}}
-        
+        <div id="comment-wrapper-{{this.id}}">
+            {{#each comments as |comment|}}
+                <p class="comment">{{comment.user.username}}:  {{comment.text}}</p>
+            {{/each}}
+        </div>
     </div>
 </div> 

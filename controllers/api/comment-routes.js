@@ -25,7 +25,21 @@ router.post('/', authentication, (req, res) => {
         user_id: req.session.user_id,
         post_id: req.body.post_id
     })
-    .then(dbCommentData => res.json(dbCommentData))
+    .then(dbCommentData => {
+        Comment.findOne({
+            where: {
+                id: dbCommentData.id
+            },
+            include: [
+                {
+                    model: User
+                }
+            ]
+        })
+        .then(dbCommentData => {
+            res.json(dbCommentData);
+        })
+    })
     .catch(err => {
         console.log(err);
         res.status(400).json(err);
