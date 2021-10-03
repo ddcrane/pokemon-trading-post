@@ -1,4 +1,4 @@
-.add-button {
+.btn-add-card {
     border: unset;
     background-color: var(--primary-dark);
     padding: 10px 20px;
@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.add-button:hover {
+.btn-add-card:hover {
     background-color: var(--primary-color);
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }

@@ -8,7 +8,7 @@ const resetAddCard = () => {
 // append selection ui to frontend
 const appendSelectCard = (options) => {
     // default option
-    let optionsEl = '<option value="">Select Card</option>';
+    let optionsEl = '<option class="drop-down" value="">Select Card</option>';
 
     // build options element
     for (const option of options) {
@@ -18,13 +18,13 @@ const appendSelectCard = (options) => {
     // selection html
     const html = `<div class="step" id="step-2">
                     <div>
-                        <label for="card-select">Step 2. Select Card</label>
+                        <label class="card-step"for="card-select">Step 2. Select Card</label>
                         <select name="card-select" id="card-select" class="row text mx-auto">
                             ${optionsEl}
                         </select>
                     </div>
-                    <div>
-                        <button id="select" class="btn btn-primary mx-auto">Add Card</button>
+                    <div class="d-flex">
+                        <button id="select" class="centered search-btn">Add Card</button>
                     </div>
                 </div>`;
     

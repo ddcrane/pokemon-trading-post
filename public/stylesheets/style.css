@@ -141,3 +141,77 @@ li {
     margin: unset;
     padding: 20px 40px;
 }
+
+.post-button {
+    border: unset;
+    background-color: var(--primary-light);
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: 40px;
+}
+
+.post-button:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    color: white;
+}
+
+.add-card {
+    background-color: white;
+    width: 80%;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: unset;
+    padding-bottom: 20px;
+}
+
+.ns-row.blue {
+    background-color: var(--primary-color);
+    text-align: center;
+    color: white;
+}
+
+.card-step {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.card-search {
+    padding: 0 25%;
+    justify-content: center;
+}
+
+.search-btn {
+    color: white;
+    border: unset;
+    background-color: var(--primary-light);
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    margin: 10px 0;
+    margin-left: 5px;;
+}
+
+.search-box {
+    height: 40px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: unset;
+    border: solid gainsboro 1px;
+}
+
+.search-btn:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+
+.drop-down {
+    height: 40px;
+}
+
+.centered {
+    margin: 0 auto;
+}
