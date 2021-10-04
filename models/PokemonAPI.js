@@ -1,5 +1,5 @@
 const pokemon = require('pokemontcgsdk');
-pokemon.configure({apiKey: process.env.PokemonKey})
+pokemon.configure({apiKey: process.env.Pokemon_Key});
 
 class PokemonAPI {
 
